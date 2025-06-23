@@ -33,5 +33,4 @@ jobs:
         file: ./base/Dockerfile   # 👈 explicitly set the Dockerfile
         push: true
         tags: |
-          ${{ env.repo }}:latest
-          ${{ env.repo }}:${{ env.time_tag }}
+          ${{ env.repo }}:base
