@@ -1,7 +1,6 @@
 FROM quay.io/fedora/fedora-toolbox:latest
 
-# VSCode and Obsidian
-RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
-    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" \
-    > /etc/yum.repos.d/vscode.repo && \
-    dnf install -y code
+# cursor
+RUN wget -O /tmp/cursor "https://downloads.cursor.com/production/031e7e0ff1e2eda9c1a0f5df67d44053b059c5df/linux/x64/Cursor-1.2.1-x86_64.AppImage"
+RUN chmod +x /tmp/cursor
+RUN mv /tmp/cursor /usr/local/bin
